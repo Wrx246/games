@@ -19,6 +19,11 @@ const CardWrapper = styled.div`
     width: 200px;
     height: 200px;
   }
+
+  @media (max-width: 450px) {
+    width: 150px;
+    height: 200px;
+  }
 `;
 
 const CardTitle = styled.h3`
@@ -52,8 +57,8 @@ const CardImage = styled.div`
   height: 60%;
   position: relative;
 
-  @media (max-width: 700px) {
-    height: 60%;
+  @media (max-width: 450px) {
+    height: 50%;
   }
 `;
 
@@ -83,11 +88,10 @@ const CardItem = ({ game }) => {
         <Image
           src={game.background_image}
           fill
-          
           alt={game.name}
         />
       </CardImage>
-      <CardLink href="/game">
+      <CardLink href={`/game/${game.slug}`}>
         <CardTitle>{gameName}</CardTitle>
       </CardLink>
       <CardRate>Rate: {game.rating}</CardRate>
