@@ -1,7 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
-import { GamesApi } from "../../api/games";
 import Layout from "../../components/Layout";
 import {
   GameAnchor,
@@ -14,6 +13,7 @@ import {
   GameWrapper,
   SliderWrap,
 } from "./gameStyles";
+import { GamesApi } from "../api/games";
 
 const GamePage = ({ game, screenshots }) => {
   const theObj = { __html: game.description };
