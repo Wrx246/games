@@ -1,11 +1,45 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import {
-  ButtonBar,
-  PanelWrapper,
-  SelectStyled,
-  SortedButton,
-} from "./panelStyles";
+import styled from "styled-components";
+
+const PanelWrapper = styled.div`
+  width: 70%;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  
+  @media(max-width: 700px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+`;
+
+const SelectStyled = styled.select`
+  width: 150px;
+  height: 25px;
+  background: #202020;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+`;
+
+const ButtonBar = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const SortedButton = styled.button`
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    opacity: 0.5;
+  }
+`;
 
 const ControlPanel = () => {
   const [ordering, setOrdering] = useState("-rating");
