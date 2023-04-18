@@ -10,5 +10,8 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: #000000;
     color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
   }
 `

@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Image from "next/image";
 import Link from "next/link";
+import styled from "styled-components";
 
-const CardWrapper = styled.div`
+
+export const CardWrapper = styled.div`
   width: 350px;
   height: 300px;
   background: #202020;
@@ -26,7 +25,7 @@ const CardWrapper = styled.div`
   }
 `;
 
-const CardTitle = styled.h3`
+export const CardTitle = styled.h3`
   max-width: 90%;
   font-size: 24px;
   line-height: 28px;
@@ -47,12 +46,12 @@ const CardTitle = styled.h3`
   }
 `;
 
-const CardLink = styled(Link)`
+export const CardLink = styled(Link)`
   margin: 0;
   text-decoration: none;
 `;
 
-const CardImage = styled.div`
+export const CardImage = styled.div`
   width: 100%;
   height: 60%;
   position: relative;
@@ -62,7 +61,7 @@ const CardImage = styled.div`
   }
 `;
 
-const CardRate = styled.p`
+export const CardRate = styled.p`
   padding: 5px 10px;
 
   @media (max-width: 700px) {
@@ -70,34 +69,10 @@ const CardRate = styled.p`
   }
 `;
 
-const CardDate = styled.p`
+export const CardDate = styled.p`
   padding-left: 10px;
 
   @media (max-width: 700px) {
     font-size: 12px;
   }
 `;
-
-const CardItem = ({ game }) => {
-  const [gameName] = useState(
-    game.name.length > 22 ? game.name.slice(0, 22) + "..." : game.name
-  );
-  return (
-    <CardWrapper>
-      <CardImage>
-        <Image
-          src={game.background_image}
-          fill
-          alt={game.name}
-        />
-      </CardImage>
-      <CardLink href={`/game/${game.slug}`}>
-        <CardTitle>{gameName}</CardTitle>
-      </CardLink>
-      <CardRate>Rate: {game.rating}</CardRate>
-      <CardDate>Release: {game.released}</CardDate>
-    </CardWrapper>
-  );
-};
-
-export default CardItem;
