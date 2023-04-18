@@ -2,11 +2,13 @@ import { API } from "./config"
 
 
 export const GamesApi = {
-    async getGamesList(page) {
+    async getGamesList(page, ordering, platforms) {
         try {
             const response = await API.get(`games`, {
                 params: {
-                    page: page
+                    page: page,
+                    ordering: ordering,
+                    platforms: platforms
                 }
             });
             return response.data.results
@@ -25,6 +27,18 @@ export const GamesApi = {
     async getGameScreenshots(id) {
         try {
             const response = await API.get(`games/${id}/screenshots`);
+            return response.data.results
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    async getSearchGame(game) {
+        try {
+            const response = await API.get(`games`, {
+                params: {
+                    search: game
+                }
+            })
             return response.data.results
         } catch (error) {
             console.log(error)
