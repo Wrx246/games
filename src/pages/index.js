@@ -56,10 +56,17 @@ const HomePage = ({ games, searched }) => {
   const [value, bind] = useInput("");
 
   const handleClick = (option) => {
-    router.push(
-      `?ordering=${router?.query?.ordering}&platforms=${router?.query?.platforms}&page=${option === '+' ? page + 1 : page - 1}`
-    )
-    setPage(prev => prev + 1)
+    if(option === '+') {
+      router.push(
+        `?ordering=${router?.query?.ordering}&platforms=${router?.query?.platforms}&page=${page + 1}`
+      )
+      setPage(prev => prev + 1)
+    } else if(option === '-') {
+      router.push(
+        `?ordering=${router?.query?.ordering}&platforms=${router?.query?.platforms}&page=${page - 1}`
+      )
+      setPage(prev => prev - 1)
+    }
   }
 
   return (
